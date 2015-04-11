@@ -45,6 +45,9 @@ public class ChestGui implements Listener {
                     if(c != null)
                     {
                         Bukkit.dispatchCommand(p, TpaGui.getPlugin().getConfig().getString("tpa-command").replaceAll("!player!", String.valueOf(p)).replaceAll("!to", String.valueOf(c)));
+
+                        Bukkit.getLogger().info(p + " just teleported to " + c);
+                        Bukkit.getLogger().info(TpaGui.getPlugin().getConfig().getString("tpa-command").replaceAll("!player!", String.valueOf(p)).replaceAll("!to", String.valueOf(c)));
                     }
                 }
             }
