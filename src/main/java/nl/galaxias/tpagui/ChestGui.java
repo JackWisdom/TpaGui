@@ -8,6 +8,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.ChatColor;
 
 /**
  * Created by Galaxias on 11-04-15 (18:42).
@@ -20,7 +21,7 @@ public class ChestGui implements Listener {
     {
         ItemStack i = item;
         ItemMeta m = i.getItemMeta();
-        youtubers = Bukkit.createInventory(p, rows * 9, TpaGui.getPlugin().getConfig().getString("gui-title"));
+        youtubers = Bukkit.createInventory(p, rows * 9, ChatColor.translateAlternateColorCodes('&', TpaGui.getPlugin().getConfig().getString("gui-title")));
         for(int z = 0; z < players.length; z++)
         {
             m.setDisplayName(players[z].getName());
@@ -33,7 +34,7 @@ public class ChestGui implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent event)
     {
-        if(event.getInventory().getTitle().equalsIgnoreCase(TpaGui.getPlugin().getConfig().getString("gui-title")))
+        if(event.getInventory().getTitle().equalsIgnoreCase(ChatColor.translateAlternateColorCodes('&', TpaGui.getPlugin().getConfig().getString("gui-title"))))
         {
             if(event.getCurrentItem() != null && event.getCurrentItem().getType() != null)
             {
