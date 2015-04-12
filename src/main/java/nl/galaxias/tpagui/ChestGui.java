@@ -20,7 +20,7 @@ public class ChestGui implements Listener {
     {
         ItemStack i = item;
         ItemMeta m = i.getItemMeta();
-        youtubers = Bukkit.createInventory(p, rows * 9, "Click on a name");
+        youtubers = Bukkit.createInventory(p, rows * 9, TpaGui.getPlugin().getConfig().getString("gui-title").replaceAll("!player!", event.getPlayer()));
         for(int z = 0; z < players.length; z++)
         {
             m.setDisplayName(players[z].getName());
@@ -33,7 +33,7 @@ public class ChestGui implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent event)
     {
-        if(event.getInventory().getTitle().equalsIgnoreCase("Click on a name"))
+        if(event.getInventory().getTitle().equalsIgnoreCase(TpaGui.getPlugin().getConfig().getString("gui-title").replaceAll("!player!", event.getPlayer())))
         {
             if(event.getCurrentItem() != null && event.getCurrentItem().getType() != null)
             {
