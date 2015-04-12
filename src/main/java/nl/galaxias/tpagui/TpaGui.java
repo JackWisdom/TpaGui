@@ -18,6 +18,7 @@ public class TpaGui extends JavaPlugin {
         plugin = this;
 
         config.addDefault("tpa-command", "tpa !player! !to!");
+        config.addDefault("gui-header", "&cClick on &aa head!");
 
         config.options().copyDefaults(true);
         saveConfig();
