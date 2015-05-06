@@ -21,7 +21,7 @@ public class ChestGui implements Listener {
     {
         ItemStack i = item;
         ItemMeta m = i.getItemMeta();
-        youtubers = Bukkit.createInventory(p, rows * 9, ChatColor.translateAlternateColorCodes('&', TpaGui.getPlugin().getConfig().getString("gui-title")));
+        youtubers = Bukkit.createInventory(p, rows * TpaGui.getPlugin().getConfig().getInt("slots"), ChatColor.translateAlternateColorCodes('&', TpaGui.getPlugin().getConfig().getString("gui-title")));
         for(int z = 0; z < players.length; z++)
         {
             m.setDisplayName(players[z].getName());
