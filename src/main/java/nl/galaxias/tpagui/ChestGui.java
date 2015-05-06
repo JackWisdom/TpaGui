@@ -15,20 +15,21 @@ import org.bukkit.ChatColor;
  * This file is part of TpaGui in the package nl.galaxias.tpagui.
  */
 public class ChestGui implements Listener {
-    private Inventory youtubers;
+    private Inventory tpa;
+    int slots = TpaGui.getPlugin().getConfig().getInt("slots");
 
     public void openGUI(Player p, Player[] players, int rows, ItemStack item)
     {
         ItemStack i = item;
         ItemMeta m = i.getItemMeta();
-        youtubers = Bukkit.createInventory(p, rows * 9, ChatColor.translateAlternateColorCodes('&', TpaGui.getPlugin().getConfig().getString("gui-title")));
+        tpa = Bukkit.createInventory(p, rows * slots, ChatColor.translateAlternateColorCodes('&', TpaGui.getPlugin().getConfig().getString("gui-title")));
         for(int z = 0; z < players.length; z++)
         {
             m.setDisplayName(players[z].getName());
             i.setItemMeta(m);
-            youtubers.setItem(z, i);
+            tpa.setItem(z, i);
         }
-        p.openInventory(youtubers);
+        p.openInventory(tpa);
     }
 
     @EventHandler
@@ -39,6 +40,7 @@ public class ChestGui implements Listener {
             if(event.getCurrentItem() != null && event.getCurrentItem().getType() != null)
             {
                 event.setCancelled(true);
+
                 Player p = (Player) event.getWhoClicked();
                 if(event.getCurrentItem().hasItemMeta() && event.getCurrentItem().getItemMeta().hasDisplayName())
                 {

@@ -19,6 +19,7 @@ public class TpaGui extends JavaPlugin {
 
         config.addDefault("tpa-command", "tpa !player! !to!");
         config.addDefault("gui-title", "&cClick on &aa head!");
+        config.addDefault("slots", "9");
 
         config.options().copyDefaults(true);
         saveConfig();
