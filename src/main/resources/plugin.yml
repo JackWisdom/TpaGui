@@ -3,11 +3,7 @@ version: 1.0
 main: nl.galaxias.tpagui.TpaGui
 
 commands:
-  tpa:
+  tpagui:
     description: Sends a teleport request
     permission: tpagui.tpa
 
-permissions:
-  tpagui.tpa:
-    description: Allows you to execute /tpa
-    default: op

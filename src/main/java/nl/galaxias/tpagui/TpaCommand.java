@@ -13,14 +13,12 @@ import org.bukkit.inventory.ItemStack;
  * This file is part of TpaGui in the package nl.galaxias.tpagui.
  */
 public class TpaCommand implements CommandExecutor {
-    private ChestGui gui = new ChestGui();
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         Player player = (Player) sender;
 
         if (cmd.getName().equalsIgnoreCase("tpagui")) {
-                gui.openGUI(player ,  new ItemStack(Material.PLAYER_HEAD));
-
+                TpaGui.chestGui.openGUI(player ,  new ItemStack(Material.PLAYER_HEAD));
             return true;
         }
         return false;

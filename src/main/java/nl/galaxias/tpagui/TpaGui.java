@@ -12,21 +12,20 @@ import org.bukkit.plugin.java.JavaPlugin;
  */
 public class TpaGui extends JavaPlugin {
     private static Plugin plugin;
+    public static ChestGui chestGui;
     FileConfiguration config = getConfig();
 
     public void onEnable() {
+        chestGui=new ChestGui();
         plugin = this;
-
-        config.addDefault("tpa-command", "tpa !player! !to!");
-        config.addDefault("gui-title", "&cClick on &aa head!");
-        config.addDefault("slots", "9");
-
+        config.addDefault("gui-title", "§c点击传送!");
+        config.addDefault("rows", "6");
         config.options().copyDefaults(true);
         saveConfig();
 
-        registerEvents(this, new ChestGui());
+        registerEvents(this, chestGui);
 
-        getCommand("tpa").setExecutor(new TpaCommand());
+        getCommand("tpagui").setExecutor(new TpaCommand());
     }
 
     public void onDisable() {
