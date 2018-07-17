@@ -18,10 +18,8 @@ public class TpaCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         Player player = (Player) sender;
 
-        if (cmd.getName().equalsIgnoreCase("tpa")) {
-            if (sender.hasPermission("tpagui.tpa")) {
-                gui.openGUI(player, Bukkit.getOnlinePlayers().toArray(new Player[Bukkit.getOnlinePlayers().size()]), 1, new ItemStack(Material.SKULL_ITEM, 1, (byte) 3));
-            }
+        if (cmd.getName().equalsIgnoreCase("tpagui")) {
+                gui.openGUI(player ,  new ItemStack(Material.PLAYER_HEAD));
 
             return true;
         }
