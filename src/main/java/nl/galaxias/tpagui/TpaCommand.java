@@ -18,7 +18,7 @@ public class TpaCommand implements CommandExecutor {
         Player player = (Player) sender;
 
         if (cmd.getName().equalsIgnoreCase("tpagui")) {
-                TpaGui.chestGui.openGUI(player ,  new ItemStack(Material.PLAYER_HEAD));
+                TpaGui.chestGui.openGUI(player );
             return true;
         }
         return false;
